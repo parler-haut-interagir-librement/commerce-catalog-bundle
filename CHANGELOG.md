@@ -4,6 +4,30 @@ All notable changes to `phil/commerce-catalog-bundle` will be documented in this
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## 0.1.1-alpha - 2026-11-24
+
+### Added
+
+- The suggested retail price of a product: `Product::suggestRetailPrice()` and `suggestedRetailPrice()`, more than zero
+  and in the product's currency, kept beside the base price and never pricing a line; the column
+  `suggested_retail_price`, null by default. A table of 0.1.0-alpha gains that column and nothing else changes.
+- The cost of a product: `ProductCosts`, a public alias of `CompositeCosts`, which gives a composite the sum of its
+  parts' unit costs times their units, and any other product the unit cost of `UnitCosts`; `LogisticsUnitCosts`, the
+  `UnitCosts` of `phil/commerce-logistics-bundle` 0.2 or later, registered when its bundle is, which the package
+  suggests and which conflicts below 0.1.1.
+
+### Fixed
+
+- It requires `phil/commerce-bundle` 0.4, the version published on 2026-11-20, beside which its requirement of 0.2 or
+  0.3 kept it from installing.
+
+### Changed
+
+- It requires `phil/commerce-bundle` 0.5, the minor released the same evening.
+- Requires the latest minor of each dependency (`doctrine/orm` 3.8, `doctrine/dbal` 4.6, `phil/doctrine-behaviours`
+  0.3, `symfony/polyfill-php86` 1.43, …), and of each development requirement (`doctrine/doctrine-bundle` 3.4,
+  `doctrine/persistence` 4.2, `symfony/event-dispatcher-contracts` 3.8).
+
 ## 0.1.0-alpha - 2026-11-20
 
 ### Added
